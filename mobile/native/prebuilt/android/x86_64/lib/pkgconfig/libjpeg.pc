@@ -1,0 +1,10 @@
+prefix=C:/Users/Erand/OneDrive/Desktop/pdf-editor/mobile/native/prebuilt/android/x86_64
+exec_prefix=C:/Users/Erand/OneDrive/Desktop/pdf-editor/mobile/native/prebuilt/android/x86_64
+libdir=C:/Users/Erand/OneDrive/Desktop/pdf-editor/mobile/native/prebuilt/android/x86_64/lib
+includedir=C:/Users/Erand/OneDrive/Desktop/pdf-editor/mobile/native/prebuilt/android/x86_64/include
+
+Name: libjpeg
+Description: A SIMD-accelerated JPEG codec that provides the libjpeg API
+Version: 3.1.0
+Libs: -L${libdir} -ljpeg
+Cflags: -I${includedir}

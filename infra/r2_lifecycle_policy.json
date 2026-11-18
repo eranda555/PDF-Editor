@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "id": "pdf-jobs-one-hour-expiry-target",
+      "enabled": true,
+      "conditions": { "prefix": "jobs/" },
+      "deleteObjectsTransition": {
+        "condition": { "type": "Age", "maxAge": 3600 }
+      },
+      "abortMultipartUploadsTransition": {
+        "condition": { "type": "Age", "maxAge": 86400 }
+      }
+    }
+  ]
+}

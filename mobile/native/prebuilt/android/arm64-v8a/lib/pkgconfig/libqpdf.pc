@@ -1,0 +1,11 @@
+prefix=C:/Users/Erand/OneDrive/Desktop/pdf-editor/mobile/native/prebuilt/android/arm64-v8a
+exec_prefix=${prefix}
+libdir=C:/Users/Erand/OneDrive/Desktop/pdf-editor/mobile/native/prebuilt/android/arm64-v8a/lib
+includedir=C:/Users/Erand/OneDrive/Desktop/pdf-editor/mobile/native/prebuilt/android/arm64-v8a/include
+
+Name: libqpdf
+Description: PDF transformation library
+Version: 12.4.0
+Requires.private: zlib, libjpeg
+Libs: -L${libdir} -lqpdf
+Cflags: -I${includedir} -std=c++20

@@ -1,0 +1,40 @@
+name: hundred_percent_pdf
+description: Private offline PDF tools with optional cloud conversions.
+publish_to: none
+version: 0.2.0+2
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  ffi: ^2.2.0
+  path: ^1.9.1
+  uuid: ^4.5.3
+  crypto: ^3.0.7
+  flutter_secure_storage: ^9.2.4
+  local_auth: ^2.3.0
+  path_provider: ^2.1.5
+  file_picker: ^10.1.0
+  share_plus: ^11.0.0
+  image: ^4.5.4
+  flutter_image_compress: ^2.5.1
+  background_downloader: ^9.6.5
+  pdf: ^3.11.3
+  drift: ^2.26.0
+  sqlite3_flutter_libs: ^0.5.32
+  google_mlkit_document_scanner: ^0.4.0
+  google_mlkit_text_recognition: ^0.15.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Suite Sans
+      fonts:
+        - asset: assets/fonts/roboto-regular.ttf
+        - asset: assets/fonts/roboto-medium.ttf
+          weight: 600
+        - asset: assets/fonts/roboto-bold.ttf
+          weight: 700

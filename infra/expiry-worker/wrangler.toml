@@ -1,0 +1,6 @@
+name = "pdf-expiry-dispatch"
+main = "worker.js"
+compatibility_date = "2026-11-17"
+[triggers]
+crons = ["* * * * *"]
+# Set API_URL and QUEUE_URL as Worker variables and INTERNAL_TOKEN as a secret.
