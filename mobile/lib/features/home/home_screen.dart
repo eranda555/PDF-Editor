@@ -74,11 +74,7 @@ class _HomeState extends State<HomeScreen> {
     try {
       await action();
       await reload();
-    } catch (_) {
-      error(
-        'Operation unavailable. Check input file and native engine installation.',
-      );
-    } finally {
+    } catch (e) { error('Error: $e'); } finally {
       if (mounted) setState(() => busy = false);
     }
   }

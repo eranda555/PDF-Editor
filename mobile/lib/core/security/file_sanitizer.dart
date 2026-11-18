@@ -10,20 +10,23 @@ class FileSanitizer {
   static String displayName(String name) => p
       .basename(name.replaceAll('\\', '/'))
       .replaceAll(RegExp(r'[^a-zA-Z0-9._-]'), '_');
+
   static Future<Directory> vaultDirectory() async {
     final root = await getApplicationSupportDirectory();
     return Directory(p.join(root.path, 'documents')).create(recursive: true);
   }
 
   static Future<File> importFile(String source, {bool image = false}) async {
-    final original = File(source);
+    final original = source.startsWith('file://')
+        ? File.fromUri(Uri.parse(source))
+        : File(source);
     if (await original.length() > 150 * 1024 * 1024) {
       throw StateError('Local import exceeds 150 MB');
     }
     final directory = await vaultDirectory();
     final extension = image
         ? '.jpg'
-        : p.extension(displayName(source)).toLowerCase();
+        : p.extension(displayName(original.path)).toLowerCase();
     if (!RegExp(r'^\.[a-z0-9]{1,6}$').hasMatch(extension)) {
       throw StateError('Invalid file extension');
     }
