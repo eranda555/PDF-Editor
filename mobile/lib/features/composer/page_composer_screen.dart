@@ -190,7 +190,7 @@ class _ComposerState extends State<PageComposerScreen> {
                       pages.removeWhere((page) => selected.contains(page.id));
                       selected.clear();
                     }),
-              icon: const Icon(Icons.delete_outline, color: AppColors.coral),
+              icon: const Icon(Icons.delete_outline, color: AppColors.plum),
               label: const Text('Remove'),
             ),
             TextButton(
@@ -237,7 +237,7 @@ class _ComposerState extends State<PageComposerScreen> {
                     );
                     final tile = Card(
                       color: selected.contains(page.id)
-                          ? AppColors.primary20
+                          ? AppColors.selection
                           : Colors.white,
                       child: InkWell(
                         onTap: busy

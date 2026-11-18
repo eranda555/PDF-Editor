@@ -15,7 +15,13 @@ import '../../core/ffi/pdf_ffi_bindings.dart';
 import '../../core/ffi/pdf_edits.dart';
 
 class LocalToolsScreen extends StatefulWidget {
-  const LocalToolsScreen({super.key, required this.database});
+  const LocalToolsScreen({
+    super.key,
+    required this.database,
+    this.initialTool = 'Extract pages',
+    this.initialFormat = 'png',
+  });
+  final String initialTool, initialFormat;
   final AppDatabase database;
   @override
   State<LocalToolsScreen> createState() => _ToolsState();
@@ -27,7 +33,9 @@ class _ToolsState extends State<LocalToolsScreen> {
   final owner = TextEditingController();
   final interval = TextEditingController(text: '1');
   final margin = TextEditingController(text: '18');
-  String tool = 'Extract pages', format = 'png', paper = 'A4';
+  late String tool = widget.initialTool;
+  late String format = widget.initialFormat;
+  String paper = 'A4';
   int dpi = 150;
   double quality = 80;
   bool busy = false, printing = true, copying = true;

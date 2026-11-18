@@ -41,9 +41,14 @@ android {
                     keyAlias = System.getenv("PDF_SIGNING_KEY_ALIAS")
                     keyPassword = System.getenv("PDF_SIGNING_KEY_PASSWORD")
                 }
+            } else {
+                signingConfig = signingConfigs.getByName("debug")
             }
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }

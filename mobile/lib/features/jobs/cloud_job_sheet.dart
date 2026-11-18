@@ -16,7 +16,13 @@ import 'package:uuid/uuid.dart';
 import '../../core/database/app_database.dart';
 
 class CloudJobSheet extends StatefulWidget {
-  const CloudJobSheet({super.key, required this.api, required this.database});
+  const CloudJobSheet({
+    super.key,
+    required this.api,
+    required this.database,
+    this.initialFormat = 'docx',
+  });
+  final String initialFormat;
   final ApiClient api;
   final AppDatabase database;
   @override
@@ -24,7 +30,7 @@ class CloudJobSheet extends StatefulWidget {
 }
 
 class _CloudState extends State<CloudJobSheet> {
-  String format = 'docx';
+  late String format = widget.initialFormat;
   String? jobId;
   String state = 'Choose a document';
   double progress = 0;
@@ -384,7 +390,7 @@ class _CloudState extends State<CloudJobSheet> {
         if (jobId != null && state != 'deleted')
           TextButton.icon(
             onPressed: delete,
-            icon: const Icon(Icons.delete_forever, color: AppColors.coral),
+            icon: const Icon(Icons.delete_forever, color: AppColors.plum),
             label: const Text('Delete from cloud now'),
           ),
         if (!busy && jobId != null)

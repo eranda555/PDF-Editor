@@ -30,7 +30,9 @@ class PdfViewerScreen extends StatefulWidget {
     super.key,
     required this.path,
     required this.operations,
+    this.signOnOpen = false,
   });
+  final bool signOnOpen;
   final String path;
   final PdfOperations operations;
   @override
@@ -44,7 +46,7 @@ class _EditorState extends State<PdfViewerScreen> {
   late int count;
   int page = 0;
   bool busy = false;
-  EditMode mode = EditMode.view;
+  late EditMode mode = widget.signOnOpen ? EditMode.signature : EditMode.view;
   final history = <String>[];
   final redactions = <RedactionBox>[];
   final stroke = <Offset>[];
@@ -204,7 +206,7 @@ class _EditorState extends State<PdfViewerScreen> {
         TextSpan(
           text: text.substring(index, index + query.length),
           style: const TextStyle(
-            backgroundColor: AppColors.primary20,
+            backgroundColor: AppColors.selection,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -759,7 +761,7 @@ class _EditsPainter extends CustomPainter {
     }
     if (draft != null) canvas.drawRect(draft!, paint..color = Colors.black26);
     paint
-      ..color = AppColors.charcoal
+      ..color = AppColors.annotationInk
       ..strokeWidth = 2
       ..strokeCap = StrokeCap.round;
     for (var i = 1; i < points.length; i++) {

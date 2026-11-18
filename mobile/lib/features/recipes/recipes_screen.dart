@@ -160,7 +160,7 @@ class _RecipesState extends State<WorkflowRecipesScreen> {
                       child: ListTile(
                         leading: const Icon(
                           Icons.auto_awesome,
-                          color: AppColors.coral,
+                          color: AppColors.plum,
                         ),
                         title: Text(recipe['name'] as String),
                         subtitle: Text(
